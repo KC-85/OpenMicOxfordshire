@@ -372,3 +372,24 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 - Staging smoke tests passed; migrations ran.
 - Health checks green; error rate baseline stable.
 - Backups completed within last 24h.
+
+## Configuration & Environment Variables (Sample)
+`
+DEBUG=false
+SECRET_KEY=...
+DATABASE_URL=postgres://user:pass@db:00000/openmic
+REDIS_URL=redis://redis:00000/0
+TIME_ZONE=Europe/London
+ALLOWED_HOSTS=openmic-oxon.example.com
+EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+EMAIL_HOST=smtp.sendgrid.net
+EMAIL_HOST_USER=apikey
+EMAIL_HOST_PASSWORD=...
+DEFAULT_FROM_EMAIL=no-reply@openmic-oxon.uk
+TURNSTILE_SITE_KEY=...
+TURNSTILE_SECRET_KEY=...
+MEDIA_BACKEND=s3
+S3_BUCKET=...
+S3_ACCESS_KEY=...
+S3_SECRET_KEY=...
+`
