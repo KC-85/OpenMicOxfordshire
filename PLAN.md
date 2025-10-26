@@ -380,15 +380,102 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 - DATABASE_URL=postgres://user:pass@db:00000/openmic 
 - REDIS_URL=redis://redis:00000/0 
 - TIME_ZONE=Europe/London 
-- ALLOWED_HOSTS=openmic-oxon.example.com
+- ALLOWED_HOSTS=openmic-example.example.com
 - EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend 
 - EMAIL_HOST=smtp.sendgrid.net 
 - EMAIL_HOST_USER=apikey 
 - EMAIL_HOST_PASSWORD=... 
-- DEFAULT_FROM_EMAIL=no-reply@openmic-oxon.uk 
+- DEFAULT_FROM_EMAIL=no-reply@openmic-example.example 
 - TURNSTILE_SITE_KEY=... 
 - TURNSTILE_SECRET_KEY=... 
 - MEDIA_BACKEND=s3
 - S3_BUCKET=... 
 - S3_ACCESS_KEY=... 
 - S3_SECRET_KEY=... 
+
+## SEO, Sharing & Growth
+
+- Titles: `Event Title — Town — Date | Oxfordshire Open Mic Hub`
+- Meta description from first 160 chars of description.
+- Schema.org `Event` microdata on detail pages.
+- Social cards (Open Graph/Twitter) with poster image fallback.
+- `/sitemap.xml`, `/robots.txt`; clean URLs; paginated lists with `rel=next`.
+- Partner outreach: local music venues, pubs, arts councils, colleges.
+
+## Risks & Mitigations
+
+- Spam/abuse: strong moderation gate, Turnstile, rate limits.
+- Data accuracy: expiry + organiser reminders; easy edits.
+- Low adoption: outreach to venues; simple submission UX; free listing.
+- Ops complexity: keep infra minimal; clear runbooks; small containers.
+
+## Timeline & Milestones (MVP 4-6 Weeks)
+
+### Week 1
+
+- Models, migrations, admin setup, Town fixture.
+- Public list (no filters yet), detail page skeleton.
+
+### Week 2
+
+- Submit flow (guest/user) + Turnstile + email verification.
+- Moderation queue with Approve/Reject.
+- Basic filters (Town, Category) + pagination.
+
+### Week 3-4
+
+- Search (Postgres FTS), .ics generator, contact relay.
+- Celery + Redis; archive task; basic tests.
+
+### Week 5-6
+
+- Weekly digest + subscriptions (verify/unsubscribe).
+- Accessibility pass, SEO essentials, content policy pages.
+- Staging deploy; test with 10–20 seeded events.
+
+### Launch (Go/No-Go)
+
+- Checklist complete; smoke tests; announce to pilot venues.
+
+## Acceptance Criteria (MVP)
+
+- Guests can submit; must verify email; moderators can approve; event visible.
+- Filters and search work together; pagination loads additional cards.
+- Past events auto-archive within an hour of end time.
+- Weekly digest delivers only upcoming events to verified subscribers.
+- Contact relay sends email without exposing organiser address.
+- A11y checks: forms labelled, focus outlines, alt text present, keyboard-navigable.
+- Error monitoring and nightly DB backups operational.
+
+## Go-Live Checklist
+
+- Domains & DNS configured; HTTPS valid.
+- ENV secrets present in prod.
+- Admin user created; Moderator group permissions assigned.
+- Email sending verified (inbox delivery + unsubscribe).
+- Backups tested (restore drill on staging).
+- Content policy / privacy / terms pages published.
+- Seed Towns and 10 sample events.
+- Sitemap submitted to search engines.
+- Rollback plan documented.
+
+## Post-Launch Ops
+
+- Weekly moderation rota (SLA: approve legit posts within 24h).
+- Monthly analytics review (events posted, active towns, CTR).
+- Quarterly A/B on list ordering or card layout.
+- Venue outreach cadence: 5-10 new venues/month.
+
+## Roadmap (v1.0 - v2.0)
+
+- v1.0: JSON feed, featured events, per-event view counts, CSV export for organisers.
+- v1.1: Venue directory page + map (Leaflet), postcode search (no PostGIS yet).
+- v1.2: Trusted organisers auto-publish; moderation after the fact.
+- v2.0: Performer/venue profiles, recurring events, multi-county expansion.
+
+## Licence & Openness
+
+- Code: MIT (encourages reuse by other counties).
+- Content: organisers retain rights; site license to display; respect takedown requests.
+- Public JSON feed under CC BY-SA or similar (optional).
+
