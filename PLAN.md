@@ -374,7 +374,7 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 - Backups completed within last 24h.
 
 ## Configuration & Environment Variables (Sample)
-`
+
 |DEBUG=false|
 |SECRET_KEY=...|
 |DATABASE_URL=postgres://user:pass@db:00000/openmic|
@@ -392,4 +392,3 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 |S3_BUCKET=...|
 |S3_ACCESS_KEY=...|
 |S3_SECRET_KEY=...|
-`
