@@ -132,3 +132,26 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 
 ### Submission (logged-in)
 
+- Auth user submits -> **PENDING** (`email_verified=True`)
+- Moderator approves -> **PUBLISHED**
+
+### Moderation 
+
+- Queue shows newest first; Approve/Reject inline (HTMX).
+- Block approval if guest not verified.
+- Bulk actions for power-mods (Admin).
+
+### Archival
+
+- Celery job hourly: `end_at < now()` -> `status=ARCHIVED`.
+
+### Subscriptions
+
+- User submits email (+ optional town/category) -> verify link -> weekly digest Mon 09:00
+
+### Abuse Reporting
+
+- Detail page -> Report -> mod inbox/queue -> mark Reviewed/Dismissed.
+
+## UI/UX (CSS(Minimal), JavaScript(Minimal), Bootstrap 5 + HTMX)
+
