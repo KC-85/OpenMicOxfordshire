@@ -120,3 +120,15 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 #### Retention
 
 - Archive past events immediately; hard delete images + PII after 180 days unless legal holds.
+
+## Key Workflows
+
+### Submission (guest)
+
+- Guest fills `/submit/` + Turnstile -> **PENDING**, `email_verified=False`
+- Email with signed token -> `/verify-email/?token...`
+- After verify -> stays **PENDING** until moderator approval
+- Moderator approves -> **PUBLISHED**, `published_at` set; confirmation email
+
+### Submission (logged-in)
+
