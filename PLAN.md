@@ -110,3 +110,13 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 - `verified (bool), token (unique), created_at`
 
 #### Abuse Report
+
+- `event (FK), reason (short text), reporter_ip, status (OPEN|REVIEWED|DISMISSED), created_at`
+
+#### Indexes
+
+- `Event(status, start_at), Event(category), Event(town)`**, GIN ON** `search_vector`
+
+#### Retention
+
+- Archive past events immediately; hard delete images + PII after 180 days unless legal holds.
