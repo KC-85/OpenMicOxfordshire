@@ -59,4 +59,54 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 - **Accessibility:** WCAG 2.2 AA; full keyboard navigation; alt text required.
 - **Security:** HTTPS everywhere; OWASP Top 10 mitigations, data minimisation.
 - **Privacy:** GDPR-compliant (lawful basis, retention limits, unsubscribe).
-- **Portability:** Dockerised/K3s local/production parity. 
+- **Portability:** Dockerised/K3s local/production parity.
+
+## Information Architecture & URLs
+
+### Public
+
+- / Home: Upcoming events list (filters + "Load more").
+- `/e/<uuid>/` - Event detail (+ Add to Calendar .ics).
+- `/submit/` - Submit event (guest or user).
+- `/verify-email/?token...` - Verify guest email.
+- `/subscribe/` - Subscribe to digest(towm/category).
+- `/unsubscribe/?token...` - One-click unsubscribe.
+- `/towns/` - List towns; each links to filtered view.
+- `/feed/upcoming.json` - Read-only JSON feed (v1.0).
+
+### Moderation (protected)
+
+- `/moderation/` - Pending queue (cards with Approve/Reject).
+- `/moderation/events/<uuid>/approve` (POST).
+- `/moderation/events/<uuid>/reject` (POST).
+
+### HTMX Partials
+
+- `/events/partial-list/` - Returns grid + updated "Load more" button.
+- `/moderation/partial-queue/` - Returns current queue.
+
+## Data Model (first pass)
+
+### Entities
+
+#### Event
+
+- `id (UUID, PK), title (140), description (Text), category (music|comedy|spoken|jam|other)`
+- `venue_name (140), address (240), town (FK Town, nullable), postcode (10)`
+- `start_at (datetime), end_at (datetime)`
+- `organiser_name (120), organiser_email (email)`
+- `image (optional), status (PENDING|PUBLISHED|REJECTED|ARCHIVED)`
+- `email_verified (bool), created_by (FK, User, nullable)`
+- **TImestamps:** `published_at, created_at, updated_at`
+- **Search:** `search_vector (tsvector)` **+ GIN index**
+
+#### Town
+
+- `name (unique), slug (unique)`
+
+#### Subscription
+
+- `email, town (FK, nullable), category (nullable)`
+- `verified (bool), token (unique), created_at`
+
+#### Abuse Report
