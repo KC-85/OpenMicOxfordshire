@@ -222,3 +222,35 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 - No custom JS frameworks included; bundle remains small and deferrable.
 
 ## Anti-Abuse, Trust & Content Policy
+
+- Cloudflare Turnstile on submit/report; `django-ratelimit` (e.g., 5/min/IP).
+- Disallow approval if `guest_email` not verified.
+- Profanity/banned words check (server-side list).
+- Contact relay form hides organiser email (prevents scraping).
+- Policy pages: Terms, Privacy, Content Guidelines (no hate speech, illegal content, scams, explicit content, counterfeit ticketing).
+- If there are tickets required for an event, then a link to the official ticket seller will be provided.
+
+## Privacy, GDPR & Legal
+
+- Lawful basis: **Legitimate interests** (service provision) **+ Consent** (marketing emails/subscriptions).
+- Store minimal organiser PII; never display raw emails; purge unneeded data.
+- DSR (Data Subject Rights): export/delete on request; contact email published.
+- Logs: store IPs for abuse reports up to 90 days; rotate logs.
+- Cookies: essential only (session, CSRF); provide cookie notice if adding analytics.
+
+## Tech Stack & Architecture
+
+- Backend: Django 5.x
+- DB: PostgreSQL 15+ (with `django.contrib.postgres` FTS) or managed database (Postgres)
+- Async: Celery + Redis (expiry, digests)
+- Frontend: Django Templates, HTMX, Bootstrap 5, minimal CSS/JS
+- Email: SendGrid/Mailgun (prod), console backend (dev)
+- Storage: Local in dev; S3/R2/Ionos/Cloudinary for prod media
+- Reverse proxy: Nginx; Gunicorn app server
+- Infra: Docker Compose or K3s (dev/prod parity)
+
+### Environments
+
+- Development: DEBUG on, console emails, PostgreSQL
+- Staging: DEBUG off, test SMTP
+- Production: DEBUG off, HTTPS, object storage, managed PostgreSQL
