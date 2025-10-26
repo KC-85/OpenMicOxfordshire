@@ -254,3 +254,121 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 - Development: DEBUG on, console emails, PostgreSQL
 - Staging: DEBUG off, test SMTP
 - Production: DEBUG off, HTTPS, object storage, managed PostgreSQL
+
+## Deployment, CI/CD & Operations (DevOps)
+
+### Environments
+
+- Development: local Docker Compose; debug on; console emails.
+- Staging: prod-like; sanitized data; feature flags on.
+- Production: autoscaled or single-node; strict env vars; monitoring + backups.
+
+### CI (build + quality gates)
+
+- Providers: GitHub Actions (default) • GitLab CI • CircleCI • Azure DevOps.
+- Static checks: ruff/flake8, black (check), isort, mypy (optional).
+- Tests: pytest with coverage gate (e.g., ≥90% on critical paths). Jest for JS.
+- Security scans: pip-audit • Trivy (image scan) • Bandit.
+- Caches: pip cache, Docker layer cache.
+- Artifacts: test reports, coverage, migration plan output.
+
+### Build & Registry
+
+- Image build: Docker Buildx (multi-arch) • Buildpacks (pack) • Nix (advanced).
+- Registries: GHCR (default) • Docker Hub • GitLab Registry • AWS ECR • GCP GAR.
+- Tagging: `main-<shortsha>` + `release-<semver>`; signed images (cosign, optional).
+
+### CD (deploy strategies)
+
+- Simple: SSH/rsync + Compose (VPS).
+- Managed: Fly.io • Render • Railway (zero-maintenance).
+- Cloud: ECS Fargate • GKE Autopilot • Azure Web Apps.
+- Strategies: Rolling (default) • Blue/Green (two stacks, instant cutover) • Canary (small % first).
+- Migrations: “Deploy → run migrations → flip traffic.” Gate with health checks.
+
+### Infra/Hosting Options
+
+- Self-hosting (Possible)
+- VPS: Hetzner/OVH/DigitalOcean/IONOS (cost-effective, hands-on).
+- PaaS: Fly.io/Render (fastest to ship).
+- Kubernetes (later): k3s on VPS • GKE/EKS/AKS (if multi-service scale).
+- Workers: Celery worker + beat as separate processes/containers.
+
+### Secrets & Config
+
+- Source of truth: .env in secrets manager; never in repo.
+- Stores: GitHub Encrypted Secrets • Doppler • 1Password Secrets • AWS SSM • GCP Secret Manager.
+- Rotation: quarterly or on role changes; short-lived keys where possible.
+
+### TLS, Domains & Edge
+
+- TLS: Let’s Encrypt via Caddy/Traefik/Certbot (auto-renew).
+- DNS: Cloudflare or Route53; A/AAAA + CNAME for CDN if used.
+- CDN (optional): Cloudflare/Akamai/Fastly for static/media caching.
+- HTTP: HSTS, gzip/brotli, sane cache headers for static.
+
+### Database Operations
+
+- Engine: PostgreSQL managed (RDS/CloudSQL/Neon/DO-Droplet/IONOS) or self-hosted in Compose.
+- Migrations: Django migrate in CI gate + pre-deploy dry run on staging.
+- Connections: pgbouncer (if high concurrency).
+- Maintenance: weekly VACUUM ANALYZE (managed DBs handle this).
+
+### Backups & Disaster Recovery
+
+- Backups: nightly pg_dump + weekly base backup (WAL if available).
+- Storage: encrypted in S3/R2/Backblaze (7/30/90 retention).
+- Tests: quarterly restore drill to staging; checksum/size alerts.
+- RTO/RPO targets: RTO ≤ 4h, RPO ≤ 24h (tune if donations/ads grow).
+
+### Observability (logs, metrics, tracing)
+
+- Errors: Sentry (default) or Rollbar.
+- Logs: ELK/Opensearch • Loki + Grafana • Papertrail/Logtail (SaaS).
+- Metrics: Prometheus + Grafana • UptimeRobot/Healthchecks.io (external).
+- Health: /healthz (app) + /readiness (DB/redis checks).
+
+### Analytics & Privacy
+
+- Analytics: Plausible/Matomo (default) • GA4 (only with consent).
+- Consent: CMP banner controls ads/analytics load.
+- Anonymization: IP anonymize; respect DNT; minimal cookies.
+
+### Performance & Caching
+
+- App-level: Django cache (Redis) for fragments/HTMX partials (30–120s).
+- Static/media: CDN with long TTL + cache-busting.
+- Images: thumbnails; lazy-load; fixed card heights to reduce CLS.
+
+### Scheduling & Automations
+
+- Celery Beat (default): expiry sweeper, weekly digest, backup triggers.
+- Alt schedulers: systemd timers • GitHub Actions cron (for ancillary tasks).
+- Job reliability: idempotent tasks; retry with backoff; dead-letter queue (optional).
+- Ansible also possible for automation - also consider n8n.
+
+### Rollbacks & Releases
+
+- Versioning: semantic tags; changelog per release.
+- Rollback: keep previous image + DB state; “migrations down” not guaranteed—prefer forward fixes.
+- Feature flags: gate risky features (django-waffle) to staging/users.
+
+### Access & Security
+
+- Access control: least privilege; SSH keys or SSO; no shared root.
+- Firewall: only 80/443 open; DB/Redis private network only.
+- Patching: base image updates monthly; dependency scans in CI.
+- Policies: incident response runbook; on-call escalation (lightweight).
+
+### Cost Tiers (rough)
+
+- Lean (≈ £10–£25/mo): single VPS + managed email + R2 storage.
+- Comfort (≈ £25–£60/mo): VPS + managed Postgres + CDN + Sentry.
+- Scale (≥ £100/mo): managed DB + autoscaling app + observability stack.
+
+### Go/No-Go Checks (per deploy)
+
+- CI green (tests, lint, security scans).
+- Staging smoke tests passed; migrations ran.
+- Health checks green; error rate baseline stable.
+- Backups completed within last 24h.
