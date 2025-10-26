@@ -206,6 +206,7 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 - Verify keyboard-only flows for filtering, submitting, and moderating.
 - Confirm that list updates, toasts, and confirm prompts behave consistently across modern browsers.
 - Check that pages render and remain usable when JS is disabled (progressive enhancement).
+- JavaScript testing to be used (however minimal).
 
 ### Risks & mitigations
 
