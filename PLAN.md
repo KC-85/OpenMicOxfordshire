@@ -288,7 +288,7 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 
 ### Infra/Hosting Options
 
-- Self-hosting (Possible)
+- Self-hosting (Possible: However electricity bill may increase steeply.)
 - VPS: Hetzner/OVH/DigitalOcean/IONOS (cost-effective, hands-on).
 - PaaS: Fly.io/Render (fastest to ship).
 - Kubernetes (later): k3s on VPS • GKE/EKS/AKS (if multi-service scale).
@@ -363,7 +363,7 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 ### Cost Tiers (rough)
 
 - Lean (≈ £10–£25/mo): single VPS + managed email + R2 storage.
-- Comfort (≈ £25–£60/mo): VPS + managed Postgres + CDN + Sentry.
+- Comfort (≈ £25–£60/mo): VPS + managed Postgres DB + CDN + Sentry.
 - Scale (≥ £100/mo): managed DB + autoscaling app + observability stack.
 
 ### Go/No-Go Checks (per deploy)
