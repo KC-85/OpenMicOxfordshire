@@ -2,7 +2,7 @@
 
 ## Overall Vision
 
-A moderated, county-wide hub for open-mic nights (music, comedy, spoken word, jams) across Oxfordshire,
+A moderated, county-wide hub for open-mic events (music, comedy, spoken word, jams) across Oxfordshire,
 with simple submissions for organisers, easy discovery for performers/audiences, and reliable listings.
 
 This will become the single source for "what's on" in Oxfordshire's grassroots scene.
@@ -50,7 +50,7 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 
 ### Out of scope/later additions
 
-- Paid ticketing, seat maps, two-way calendar sync, performer profiles, reviews/ratings.
+- Ticketing (MVP if needed), seat maps, two-way calendar sync, performer profiles, reviews/ratings.
 
 ## Non-Functional Requirements
 
