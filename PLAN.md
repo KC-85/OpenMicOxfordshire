@@ -22,6 +22,106 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 - 250 monthly unique visitors/2+ pages per session
 - Email digest CTR => 15%, bounce rate <35%
 
+### Advertising & Sponsorship (High-Level)
+
+#### Purpose:
+- Generate a small, transparent revenue stream that supports hosting, email delivery, backups, and ongoing maintenance of OxPerform, while keeping the platform community-first and uncluttered.
+
+#### Advertising Approach (Pilot Phase)
+
+- Introduce a limited number of static, non-tracking sponsor placements.
+- All ads are clearly labelled “Sponsored” or “Advertisement” to comply with ASA/CAP guidelines.
+- Focus exclusively on local (some regional) sponsors during the pilot:
+
+- pubs, venues, rehearsal studios
+- music shops, creative businesses
+- local newspapers and county-wide news sites
+- arts organisations, community groups
+- small service businesses
+- No ad networks (Google Ads, programmatic) during MVP or pilot.
+
+#### Placement Strategy
+
+##### During MVP + pilot, use three lightweight placements:
+
+- Homepage Slot
+- A single rectangular banner after several event cards.
+- High visibility but not intrusive.
+- Event Detail Sidebar Slot
+- Appears on the event page, beneath event information.
+- Contextual and useful for local businesses.
+- Sitewide Footer Slot
+- A small sponsored-line or banner.
+- Always accessible without disrupting the browsing experience.
+- Each slot remains uncluttered, with a maximum of one ad per area.
+
+#### Sponsor Types & Target Outreach
+
+- Ideal sponsors during pilot:
+- local newspapers (Faringdon, Oxfordshire, regional news sites)
+- cafés, pubs, entertainment venues
+- creative agencies (e.g., Envious Digital)
+- performance spaces, theatres, galleries
+- community magazines & newsletters
+- local radio (BBC Radio Oxford community partners)
+- The goal is to build mutually supportive local relationships.
+
+#### Pricing Model (Pilot)
+
+##### Use a simple, predictable, monthly flat-fee model:
+
+- £25–£40 per month per slot (introductory pilot rate).
+- Discounts possible for multi-slot or multi-month commitments.
+- No long contracts — cancellations allowed with short notice.
+- This keeps the revenue model fair, accessible, and community-friendly.
+
+#### Sponsor Assets & Requirements
+
+- Static image banner (JPG/PNG/WebP).
+- Short accessible alt text.
+- Click-through URL containing basic UTM tags.
+- Sponsor must follow a content policy (no political, adult, misleading, or inappropriate ads).
+- Ads must visually match the site’s aesthetic (no flashing or disruptive graphics).
+
+#### Tracking & Reporting
+
+- For MVP, use lightweight impression estimates (page views) and click counts.
+
+##### Provide sponsors with a simple monthly summary:
+
+- estimated impressions
+- clicks
+- click-through rate
+- Privacy-respecting analytics only (e.g., Plausible or Matomo).
+
+#### Transparency & Trust
+
+##### Add a brief disclosure on the Support page:
+
+- “OxPerform includes clearly labelled sponsor placements to help cover hosting and maintenance costs. Sponsored content never influences event listings or moderation decisions.”
+
+- No behavioural targeting or tracking cookies during MVP.
+- All ads must remain secondary to the community content.
+
+#### Future Expansion (v1.0+)
+
+##### After the pilot, consider enhancing the advertising system:
+
+- A simple Ad model for uploading banners and links via admin.
+- Optional scheduling (start/end dates).
+- Additional sponsor slots on town pages or category pages.
+- Rotating banners if demand grows.
+- Later: optional geo-targeted ads (e.g., “sponsors in Oxford only”) based on user filtering.
+- Optional “Featured Event” paid upgrades (clearly marked).
+- Still community-first — ads must remain minimal and tasteful.
+
+#### Long-Term Vision (v2+)
+
+- Build a small advertiser dashboard for sponsors (view their stats).
+- Offer county-wide campaigns for local media and arts organisations.
+- Collaborate with local digital agencies (e.g., Envious Digital) on creative design or AEO optimisation.
+- Maintain strict editorial independence and fairness in moderation.
+
 ### Audience & Personas
 
 - **Venue Owner/Organizer (Person 1):** Needs fast event submission, editing and simple verification.
@@ -409,7 +509,7 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 - Low adoption: outreach to venues; simple submission UX; free listing.
 - Ops complexity: keep infra minimal; clear runbooks; small containers.
 
-## Timeline & Milestones (MVP 4-6 Weeks)
+## Timeline & Milestones: MVP 4-6 Weeks
 
 ### Week 1
 
