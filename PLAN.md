@@ -117,12 +117,13 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 - Optional “Featured Event” paid upgrades (clearly marked).
 - Still community-first — ads must remain minimal and tasteful.
 
-#### Long-Term Vision (v2+)
+#### Long-Term Vision (v2+ - around 18 months after v1.0)
 
 - Build a small advertiser dashboard for sponsors (view their stats).
 - Offer county-wide campaigns for local media and arts organisations.
 - Collaborate with local digital agencies (e.g., Envious Digital) on creative design or AEO optimisation.
 - Maintain strict editorial independence and fairness in moderation.
+- If possible, a complete rewrite in either Node.js or PHP(Wordpress)/Laravel for performance & efficiency.
 
 ### Audience & Personas
 
