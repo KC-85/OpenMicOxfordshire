@@ -2,8 +2,10 @@
 
 ## Overall Vision
 
-A moderated, county-wide hub for open-mic events (music, comedy, spoken word, jams) across Oxfordshire,
+A moderated, county-wide hub for open-mic events (music, comedy, spoken word, jams) initially (Pilot), across Oxfordshire,
 with simple submissions for organisers, easy discovery for performers/audiences, and reliable listings.
+
+- **Note:** If the pilot works, then we will open up to all performing arts across Oxfordshire.
 
 This will become the single source for "what's on" in Oxfordshire's grassroots scene.
 
