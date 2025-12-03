@@ -292,7 +292,7 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 
 ### Performance and UX
 
-Keep custom CSS under ~50 lines at launch; avoid component re-styling unless necessary.
+Keep custom CSS under ~100 lines at launch; avoid component re-styling unless necessary.
 Defer all custom JS; avoid heavy libraries.
 Lazy-load images via native attributes; prefer fixed image heights on cards to minimise layout shift.
 Limit DOM changes to specific containers; avoid full-page swaps.
@@ -392,7 +392,7 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 ### Infra/Hosting Options
 
 - Self-hosting (Possible: However electricity bill may increase steeply.)
-- VPS: Hetzner/OVH/DigitalOcean/IONOS (cost-effective, hands-on).
+- VPS: Hetzner/OVH/DigitalOcean/IONOS/Envious Digital (cost-effective, hands-on).
 - PaaS: Fly.io/Render (fastest to ship).
 - Kubernetes (later): k3s on VPS • GKE/EKS/AKS (if multi-service scale).
 - Workers: Celery worker + beat as separate processes/containers.
