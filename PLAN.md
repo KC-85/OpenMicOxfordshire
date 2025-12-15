@@ -40,7 +40,7 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 - local newspapers and county-wide news sites
 - arts organisations, community groups
 - small service businesses
-- No ad networks (Google Ads, programmatic) during MVP or pilot.
+- No ad networks (Google Ads, programmatic) during MVP.
 
 #### Placement Strategy
 
@@ -72,7 +72,9 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 
 ##### Use a simple, predictable, monthly flat-fee model:
 
-- £25–£40 per month per slot (introductory pilot rate).
+##### This is to keep the site running (ongoing maintenance)
+
+- £10–£15 per month (introductory pilot rate).
 - Discounts possible for multi-slot or multi-month commitments.
 - No long contracts — cancellations allowed with short notice.
 - This keeps the revenue model fair, accessible, and community-friendly.
@@ -116,6 +118,7 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 - Later: optional geo-targeted ads (e.g., “sponsors in Oxford only”) based on user filtering.
 - Optional “Featured Event” paid upgrades (clearly marked).
 - Still community-first — ads must remain minimal and tasteful.
+- If growth is sufficient over a set period of time, then Google Ads will be considered.
 
 #### Long-Term Vision (v2+ - around 18 months after v1.0)
 
