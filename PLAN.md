@@ -391,7 +391,7 @@ Limit DOM changes to specific containers; avoid full-page swaps.
 
 ### Infra/Hosting Options
 
-- Self-hosting (Possible: However electricity bill may increase steeply.)
+- Self-hosting (Possible (FTTP broadband needed: However electricity bill may increase steeply.))
 - VPS: Hetzner/OVH/DigitalOcean/IONOS/Envious Digital (cost-effective, hands-on).
 - PaaS: Fly.io/Render (fastest to ship).
 - Kubernetes (later): k3s on VPS • GKE/EKS/AKS (if multi-service scale).
