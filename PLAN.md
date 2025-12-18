@@ -111,6 +111,7 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 
 ##### After the pilot, consider enhancing the advertising system:
 
+- Addition of AEO in tandem with traditional SEO **(Starting from v1.0)**.
 - A simple Ad model for uploading banners and links via admin.
 - Optional scheduling (start/end dates).
 - Additional sponsor slots on town pages or category pages.
@@ -124,7 +125,7 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 
 - Build a small advertiser dashboard for sponsors (view their stats).
 - Offer county-wide campaigns for local media and arts organisations.
-- Collaborate with local digital agencies (e.g., Envious Digital) on creative design or AEO optimisation.
+- Collaborate with local digital agencies (e.g., Envious Digital) on creative design.
 - Maintain strict editorial independence and fairness in moderation.
 - If possible, a complete rewrite in either Node.js or PHP(Wordpress)/Laravel for performance & efficiency.
 
