@@ -74,7 +74,7 @@ This will become the single source for "what's on" in Oxfordshire's grassroots s
 
 ##### This is to keep the site running (ongoing maintenance)
 
-- £10–£15 per month (introductory pilot rate).
+- £10–£15 per month (introductory rate).
 - Discounts possible for multi-slot or multi-month commitments.
 - No long contracts — cancellations allowed with short notice.
 - This keeps the revenue model fair, accessible, and community-friendly.
